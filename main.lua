@@ -27,7 +27,7 @@ redButton.isVisible = false
 local textObject = display.newText ("Clicked!", 0, 0, nil, 50)
 textObject.x = display.contentWidth/2
 textObject.y = display.contentHeight/3
-textObject:setTextColor (1, 1, 0)
+textObject:setTextColor (0, 0, 1)
 textObject.isVisible = false
 
 --Function: BlueButtonListener
@@ -49,7 +49,21 @@ local function BlueButtonListener(touch)
 end
 end
 
---add the respective listeners to each object
-blueButton:addEventListener("touch" , BlueButtonListener)
 
---play a sound when the button is clicked on
+--Function: RedButtonListener
+--Input: touch listener
+--Output: none
+--Description: when red button is released, it will make the text disappear and red button
+--disappear, and then blue button reappear
+local function RedButtonListener(touch)
+
+	if (touch.phase == "ended") then
+		blueButton.isVisible = true
+		redButton.isVisible = false
+		textObject.isVisible = false
+	end
+end
+
+--add the respective listeners to each object
+blueButton:addEventListener("touch", BlueButtonListener)
+redButton:addEventListener("touch", RedButtonListener)
