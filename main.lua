@@ -67,3 +67,8 @@ end
 --add the respective listeners to each object
 blueButton:addEventListener("touch", BlueButtonListener)
 redButton:addEventListener("touch", RedButtonListener)
+
+--sounds
+
+local correctSound = audio.loadSound( "Sounds/bell.mp3" ) -- setting a variable to an mp3 file
+local correctSoundChannel
