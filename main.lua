@@ -5,7 +5,7 @@
 --on it, turns colour and displays text and another
 --object.
 
---local variables
+-- added sounds
 local correctSound = audio.loadSound( "Sounds/correct.mp3" ) -- setting a variable to an mp3 file
 local correctSoundChannel
 
@@ -38,7 +38,7 @@ textObject.isVisible = false
 --Function: BlueButtonListener
 --Input: touch listener
 --Output: none
---Description: when blue button is clicked, it will make the text appear with the red
+--Description: when blue button is clicked, it will make a noise and it will make the text appear with the red
 --button, and make the blue button disappear
 local function BlueButtonListener(touch)
 	if (touch.phase == "began") then
