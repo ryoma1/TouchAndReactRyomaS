@@ -5,6 +5,11 @@
 --on it, turns colour and displays text and another
 --object.
 
+--local variables
+local correctSound = audio.loadSound( "Sounds/correct.mp3" ) -- setting a variable to an mp3 file
+local correctSoundChannel
+
+
 --set the background colour
 display.setDefault ("background", 100/255, 255/255, 0/255)
 
@@ -40,6 +45,9 @@ local function BlueButtonListener(touch)
 		blueButton.isVisible = false
 		redButton.isVisible = true
 		textObject.isVisible = true
+
+		correctSoundChannel = audio.play(correctSound)
+
 	end
 
 	if (touch.phase == "ended") then
@@ -61,6 +69,7 @@ local function RedButtonListener(touch)
 		blueButton.isVisible = true
 		redButton.isVisible = false
 		textObject.isVisible = false
+
 	end
 end
 
@@ -68,7 +77,5 @@ end
 blueButton:addEventListener("touch", BlueButtonListener)
 redButton:addEventListener("touch", RedButtonListener)
 
---sounds
 
-local correctSound = audio.loadSound( "Sounds/bell.mp3" ) -- setting a variable to an mp3 file
-local correctSoundChannel
+
